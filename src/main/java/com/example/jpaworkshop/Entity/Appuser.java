@@ -16,6 +16,7 @@ public class Appuser {
     @OneToOne(cascade = CascadeType.ALL)
     private Details userDetails;
 
+
     public Appuser() {
     }
 

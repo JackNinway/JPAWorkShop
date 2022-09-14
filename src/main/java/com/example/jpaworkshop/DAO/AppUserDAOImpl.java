@@ -34,11 +34,11 @@ public class AppUserDAOImpl implements AppUserDAO{
 
     @Override
     public Appuser update(Appuser appuser) {
-        return null;
+        return entityManager.merge(appuser);
     }
 
     @Override
     public void delete(int id) {
-
+        entityManager.remove(findById(id));
     }
 }
