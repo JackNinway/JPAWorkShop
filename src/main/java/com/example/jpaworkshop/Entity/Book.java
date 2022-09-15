@@ -1,10 +1,8 @@
 package com.example.jpaworkshop.Entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 public class Book {
@@ -15,6 +13,10 @@ public class Book {
     private String title;
     private int maxLoanDays;
 
+    @ManyToMany(cascade =
+                {CascadeType.REFRESH, CascadeType.DETACH},
+                mappedBy = "writtenBooks")
+    private Set<Author> authors;
     public Book() {    }
 
     public Book(String isbn, String title, int maxLoanDays) {

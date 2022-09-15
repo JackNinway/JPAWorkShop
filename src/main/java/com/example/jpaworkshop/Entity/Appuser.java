@@ -2,6 +2,7 @@ package com.example.jpaworkshop.Entity;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -16,6 +17,9 @@ public class Appuser {
     @OneToOne(cascade = CascadeType.ALL)
     private Details userDetails;
 
+    @OneToMany(cascade = {CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH},
+               mappedBy = "borrower")
+    private List<BookLoan> loans;
 
     public Appuser() {
     }

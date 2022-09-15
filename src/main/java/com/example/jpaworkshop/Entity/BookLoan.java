@@ -12,12 +12,12 @@ public class BookLoan {
     private LocalDate loanDate;
     private LocalDate dueDate;
     private boolean returned;
-    @ManyToOne(cascade = {CascadeType.PERSIST,CascadeType.MERGE})
+    @ManyToOne(cascade = {CascadeType.DETACH,CascadeType.REFRESH})
     private Appuser borrower;
-    @ManyToOne(cascade = {CascadeType.PERSIST,CascadeType.MERGE})
+    @ManyToOne(cascade = {CascadeType.DETACH,CascadeType.REFRESH})
     private Book book;
 
-    public BookLoan() {    }
+    public BookLoan() { }
 
     public BookLoan(LocalDate loanDate, LocalDate dueDate, boolean returned) {
         this.loanDate = loanDate;

@@ -31,7 +31,7 @@ public class BookLoanDAOImpl implements BookLoanDAO{
     @Transactional
     @Override
     public Collection<BookLoan> findAll() {
-        TypedQuery<BookLoan> foundAll = entityManager.createQuery("select b from BookLoan b", BookLoan.class);
+        TypedQuery<BookLoan> foundAll = entityManager.createQuery("select bl from BookLoan bl", BookLoan.class);
         Collection<BookLoan> resBookLoan= foundAll.getResultList();
         return resBookLoan;
     }
