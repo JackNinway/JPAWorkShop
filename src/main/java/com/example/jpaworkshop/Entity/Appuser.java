@@ -30,7 +30,18 @@ public class Appuser {
         this.regDate = regDate;
         this.userDetails = userDetails;
     }
-
+    public void addBookLoan(BookLoan bookLoan){
+        if(!loans.contains(bookLoan)) {
+            loans.add(bookLoan);
+            bookLoan.setBorrower(this);
+        }
+    }
+    public void removeBookLoan(BookLoan bookLoan){
+        if(loans.contains(bookLoan)) {
+            bookLoan.setBorrower(null);
+            loans.remove(bookLoan);
+        }
+    }
     public int getId() {
         return id;
     }

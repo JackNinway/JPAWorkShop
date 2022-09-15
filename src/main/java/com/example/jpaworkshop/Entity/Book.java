@@ -24,6 +24,24 @@ public class Book {
         this.title = title;
         this.maxLoanDays = maxLoanDays;
     }
+    public void addAuthor(Author author){
+        if(!authors.contains(author)){
+            authors.add(author);
+            author.getWrittenBooks().add(this);
+        }
+    }
+    public void removeAuthor(Author author){
+        if(authors.contains(author)){
+            authors.remove(author);
+            author.getWrittenBooks().remove(this);
+        }
+    }
+    public Set<Author> getAuthors() {
+        return authors;
+    }
+    public void setAuthors(Set<Author> authors) {
+        this.authors = authors;
+    }
 
     public int getBookId() {
         return bookId;

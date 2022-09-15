@@ -25,6 +25,22 @@ public class BookLoan {
         this.returned = returned;
     }
 
+    public Appuser getBorrower() {
+        return borrower;
+    }
+
+    public void setBorrower(Appuser borrower) {
+        this.borrower = borrower;
+    }
+
+    public Book getBook() {
+        return book;
+    }
+
+    public void setBook(Book book) {
+        this.book = book;
+    }
+
     public int getLoanId() {
         return loanId;
     }
